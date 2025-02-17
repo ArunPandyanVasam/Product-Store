@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
 
 // Create product model
 const Product = mongoose.model('Product', productSchema); // collection, schema
-// Product -> products
+// Product -> products for collection|
 
 // export to use in other files
 export default Product;

@@ -11,10 +11,10 @@ dotenv.config();
 const app = express(); 
 
 
-app.use(express.json()); // allows us to accept JSON data in the body
+app.use(express.json()); // allows us to accept JSON data in the reqbody
 
 // route
-app.post("/api/products", async (req, res) => {
+app.post("/api/products", async (req, res) => { // asynchronous controller function (async)
     const product = req.body;   // user will send this data
 
     if (!product.name || !product.price || !product.image) {
@@ -33,6 +33,22 @@ app.post("/api/products", async (req, res) => {
     }
 
 });
+
+
+app.delete("/api/products/:id", async (req, res) => {
+    const { id } = req.params;
+    //console.log("id:", id);
+
+    try {
+        await Product.findByIdAndDelete(id);
+        res.status(200).json({ success: true, message: "Product deleted" });
+    } catch (error) {
+        res.status(404).json({ success: false, message: "Product not Found" });
+    }
+
+});
+
+
 
 //console.log(process.env.MONGO_URI);
 // using app variable we will listen on port
