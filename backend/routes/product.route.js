@@ -5,7 +5,7 @@ import { createProduct, deleteProduct, getProducts, updateProduct } from "../con
 
 const router = express.Router();
 
-
+// route
 router.get("/", getProducts);
 
 // route
@@ -13,9 +13,9 @@ router.post("/", createProduct);
 
 // patch ->
 // put -> 
-router.put("/:id", updateProduct);
+router.put("/:id", updateProduct); // route
 
-
+// route
 router.delete("/:id", deleteProduct);
 
 

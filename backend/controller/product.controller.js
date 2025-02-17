@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import Product from "../models/product.model.js";
 
+// contoller function
 export const getProducts = async (req, res) => {  // end-point
     try {
         const products = await Product.find({}); //fetch all  // import Product
@@ -11,6 +12,7 @@ export const getProducts = async (req, res) => {  // end-point
     }
 }
 
+// contoller function
 export const createProduct = async (req, res) => { // end-point // asynchronous controller function (async)
     const product = req.body;   // user will send this data
 
@@ -31,6 +33,7 @@ export const createProduct = async (req, res) => { // end-point // asynchronous 
 
 }
 
+// contoller function
 export const updateProduct = async (req, res) => {
     const { id } = req.params;
     const product = req.body; // update name, image, price
@@ -50,8 +53,7 @@ export const updateProduct = async (req, res) => {
 
 }
 
-
-
+// contoller function
 export const deleteProduct = async (req, res) => { // end-point
     const { id } = req.params;
     //console.log("id:", id);
