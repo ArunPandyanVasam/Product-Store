@@ -57,13 +57,16 @@ export const updateProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => { // end-point
     const { id } = req.params;
     //console.log("id:", id);
-
+    if (!mongoose.Types.ObjectId.isValid) { // import mongoose
+        return res.status(404).json({ success: false, message: "Invalid Product ID" })
+    }
+    
     try {
         await Product.findByIdAndDelete(id);
         res.status(200).json({ success: true, message: "Product deleted" });
     } catch (error) {
         console.log("error in deleting product:", error.message);
-        res.status(404).json({ success: false, message: "Product not Found" });
+        res.status(500).json({ success: false, message: "Server Error" });
     }
 
 }
