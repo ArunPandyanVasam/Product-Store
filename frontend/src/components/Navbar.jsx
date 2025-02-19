@@ -11,9 +11,11 @@ import { Link } from "react-router-dom";
 import { CiSquarePlus } from "react-icons/ci";
 import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
+// import { useProductStore } from "../store/product";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  // const {products} = useProductStore(); call hook and get value
   return (
     <Container maxW={"1140px"} px={4}>
       <Flex
