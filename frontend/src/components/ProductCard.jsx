@@ -1,6 +1,6 @@
-// import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Box, Heading, HStack, IconButton, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const ProductCard = (product) => {
   return (
@@ -28,11 +28,10 @@ const ProductCard = (product) => {
             ${product.price}
         </Text>
 
-
-        {/* <HStack spacing={2}>
-            <IconButton icon={<EditIcon />} onClick={onOpen} colorScheme='blue' />
-            <IconButton icon={<DeleteIcon />} onClick={() => handledelete(product._id)} colorScheme='red'/>
-        </HStack> */}
+      <HStack spacing={2}>
+        <IconButton icon={<FaEdit />} colorScheme='blue' />
+        <IconButton icon={<FaTrash />} colorScheme='blue' />
+      </HStack>
 
       </Box>
     </Box>
